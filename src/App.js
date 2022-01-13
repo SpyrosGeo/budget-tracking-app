@@ -10,7 +10,7 @@ function App() {
       <Button variant="outline-primary">Add Expense</Button>
       </Stack>
       <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(300px, 1fr))",gap:"1rem", alignItems:"flex-start"}}>
-        <BudgetCard name="thatguy"amount={375} max={1000}/>
+        <BudgetCard name="thatguy"amount={3175} max={1000}/>
       </div>
     </Container>
   );
