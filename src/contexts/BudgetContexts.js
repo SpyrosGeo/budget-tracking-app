@@ -3,6 +3,8 @@ import {v4 as uuidV4 } from 'uuid'
 import useLocalStorage from '../hooks/useLocalStorage'
 const BudgetContext = React.createContext()
 
+export const UNCATEGORIZED_BUDGET_ID = "Uncategorized"
+
 
 
 //custom hook
