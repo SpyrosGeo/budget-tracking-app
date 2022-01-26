@@ -13,6 +13,13 @@ const ViewExpensesModal = ({handleClose,budgetId}) => {
 
   const expenses = getBudgetExpenses(budgetId)
 
+  const inactiveLink = {
+    color:"black",
+    textDecoration:"none",
+    pointerEvents:'none',
+    cursor:'default'
+  }
+    
     return (
         <Modal show={budgetId !=null} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -33,9 +40,9 @@ const ViewExpensesModal = ({handleClose,budgetId}) => {
                 <Stack gap="3" direction="vertical">
                {expenses.map(expense=>(
                  <Stack direction='horizontal' gap="2" key={expense.id}>
-                   <div className='me-auto fs-4'>{expense.description}</div>
+                   <div className='me-auto fs-4'><a style={expense.productLink===""?inactiveLink:null} rel='noreferrer' target="_blank" href={expense.productLink?expense.productLink:"#"}>{expense.description}</a></div>
                    <div className='fs-5'>{currencyFormatter.format(expense.amount)}</div>
-                   {expense.productLink&&<Button size="sm" variant='outline-primary'><a rel="noreferrer"target="_blank" href={expense.productLink}>Link</a></Button>}
+                   {/* {expense.productLink&&<Button size="sm" variant='outline-primary'><a rel="noreferrer"target="_blank" href={expense.productLink}>Link</a></Button>} */}
                    <Button onClick={()=>{deleteExpense(expense)}}size="sm" variant='outline-danger'>x</Button>
 
                  </Stack>
